@@ -19,7 +19,8 @@ pip install matplotlib
 pip install numpy
 
 ```
-
+This works for Debian 9, if you are using windows you will need to install these a little differently.
+I have not quite finished the setup.py 
 ## Running the script
 With these installed you should be able to run:
 ```
