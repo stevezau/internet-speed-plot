@@ -25,10 +25,7 @@ numpy
 ```
 sudo apt-get install python-setuptools python-dev build-essential 
 sudo easy_install pip 
-pip install speedtest-cli
-pip install matplotlib
-pip install numpy
-
+pip install speedtest-cli requests matplotlib numpy requests
 git clone https://github.com/brentoncollins/nbnspeed
 
 python nbnspeed.py
@@ -48,7 +45,7 @@ With these installed you should be able to clone the files to a directory and ru
 Open CMD from the start menu then.
 ```
 git clone https://github.com/brentoncollins/nbnspeed
-pip install --user numpy scipy matplotlib speedtest-cli urllib2
+pip install --user numpy scipy matplotlib speedtest-cli requests
 python nbnspeed.py
 ```
 ## Optimised usage
