@@ -49,13 +49,13 @@ pip install --user numpy scipy matplotlib speedtest-cli requests
 python nbnspeed.py
 ```
 ## Optimised usage
-The speed-test package will try and locate the nearest test server to you which works most of the time, if you hare having trouble with your speed tests and this that they could be better you can brows to https://www.speedtestserver.com/ and find the closest server to you.
+The speed-test package will try and locate the nearest test server to you, which works most of the time. If you hare having trouble with your speeds and think that they could be better you can browse to https://www.speedtestserver.com/ and find the closest server to you.
 
 Find in nbnspeed.py where it says:
 ```
 servers = []
 ```
-and change it to the server number which you located on the website above.
+and change it to the server number which you located on the website above and save the changes.
 ```
 servers = [2627]
 ```
@@ -64,4 +64,5 @@ e.g. 2627 points to Telstra in Perth city, which is the closest server to me.
 ## Feedback
 
 If you have anyfeedback, or it doesnt work, please message me as this is the first commit and I most probably have forgotten something.
+I have tested it on Python 2.x and 3.x on windows and linux.
 brenton.collins@outlook.com
