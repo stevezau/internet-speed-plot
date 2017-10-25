@@ -12,9 +12,13 @@ This was created in python 2.7 but tested with Python 3.6 also and seems to work
 ## Prerequisites
 
 You will require the following for this to run:
+
 Python 2.x or 3.x
+
 speedtest-cli
+
 matplotlib
+
 numpy
 
 ## Install & Run on Linux
