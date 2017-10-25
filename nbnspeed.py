@@ -137,8 +137,11 @@ def main():
 		fig.tight_layout()
 		plt.savefig('speed.png')	# save the figure to file
 		plt.close()
-		print ("Plot Complete...\n")
-		#time.sleep(3600)
+		print ("Plot Complete...\nDownload: %s \nUpload: %s \nPing: %s) % \
+		(results_dict['download'],(results_dict['upload'],(results_dict['ping'])
+		print ("Waiting an hour before testing again")
+		time.sleep(3600)
+		
 	
 if __name__ == "__main__":
     main()
