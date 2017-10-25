@@ -28,8 +28,8 @@ city = data['city']
 country=data['country']
 region=data['region']
 
-print 'Your IP detail\n '
-print 'IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP)
+print ('Your IP detail\n ')
+print ('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
 
 def check_ping():
     hostname = "8.8.8.8"
@@ -49,7 +49,7 @@ def main():
 	counter = 0
 	while True:
 		counter += 1
-		print counter
+		print (counter)
 		if counter == 25:
 			timestr = str(time.strftime("%d-%m-%Y"))
 			shutil.copy("speed.png", timestr + ".png")
@@ -130,7 +130,7 @@ def main():
 		fig.tight_layout()
 		plt.savefig('speed.png')	# save the figure to file
 		plt.close()
-		print "Plot Complete...\n"
+		print ("Plot Complete...\n")
 		time.sleep(3600)
 	
 if __name__ == "__main__":
