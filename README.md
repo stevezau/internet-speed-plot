@@ -21,6 +21,7 @@ matplotlib
 
 numpy
 
+requests
 ## Install & Run on Linux
 ```
 sudo apt-get install python-setuptools python-dev build-essential 
