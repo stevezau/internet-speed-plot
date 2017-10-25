@@ -88,7 +88,7 @@ def main():
 		fig, ax1 = plt.subplots()
 		plt.grid()							
 		ax1.plot(x, downspeed, c='#FF6347', label='Down speed')		
-		ax1.set_xlabel(org + " - " + city + str(time.strftime("%d-%m-%Y")))
+		ax1.set_xlabel(org + " - " + city + " - " + str(time.strftime("%d-%m-%Y")))
 		ax1.set_ylabel('Down Speed', color='#FF6347')	
 		ax1.tick_params('y', colors='#FF6347')	
 		if abs(max(downspeed)-min(downspeed)) > 20:
