@@ -62,7 +62,7 @@ def main():
 			shutil.copy("speed.png", timestr + ".png")
 			counter = 0
 			
-		check_ping()
+		#check_ping()
 		# If you want to test against a specific server visit https://www.speedtestserver.com/
 		# and find a server you want to test with e.g. servers = [2627] which is Perth
 		servers = []
