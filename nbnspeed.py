@@ -38,16 +38,6 @@ region=data['region']
 print('Your IP detail\n ')
 print('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
 
-def check_ping():
-    hostname = "8.8.8.8"
-    response = os.system("ping -c 1 " + hostname)
-    # and then check the response...
-    if response == 0:
-        pingstatus = "Network Active"
-    else:
-        pingstatus = "Network Error"
-    return pingstatus
-
 def main():
 	ping_time=[]
 	up=[]
@@ -56,7 +46,6 @@ def main():
 	counter = 0
 	while True:
 		counter += 1
-		print (counter)
 		if counter == 25:
 			timestr = str(time.strftime("%d-%m-%Y"))
 			shutil.copy("speed.png", timestr + ".png")
@@ -137,8 +126,8 @@ def main():
 		fig.tight_layout()
 		plt.savefig('speed.png')	# save the figure to file
 		plt.close()
-		print ("Plot Complete...\nDownload: %s Mbps\nUpload: %s Mbps\nPing: %ss") % \
-		(download_now,upload_now,ping_now)
+		print ("Plot Complete...\nDownload: {} Mbps\nUpload: {} Mbps\nPing: {}s\nTime: {}"\
+		.format(download_now,upload_now,ping_now,str(time.strftime("%d-%m-%Y"))))
 		print ("Waiting an hour before testing again.")
 		time.sleep(3600)
 		
