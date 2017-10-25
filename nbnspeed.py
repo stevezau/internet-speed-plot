@@ -15,21 +15,28 @@ import math
 import os
 import re
 import json
-from urllib2 import urlopen
+import requests
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
 import shutil
 
 #Get current IP for IPS information
-url = 'http://ipinfo.io/json'
-response = urlopen(url)
-data = json.load(response)
+
+r = requests.get('http://ipinfo.io/json')
+r.raise_for_status()
+data = json.loads(r.content.decode('utf-8'))
 IP=data['ip']
 org=data['org']
 city = data['city']
 country=data['country']
 region=data['region']
 
-print ('Your IP detail\n ')
-print ('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
+print('Your IP detail\n ')
+print('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
 
 def check_ping():
     hostname = "8.8.8.8"
@@ -131,7 +138,7 @@ def main():
 		plt.savefig('speed.png')	# save the figure to file
 		plt.close()
 		print ("Plot Complete...\n")
-		time.sleep(3600)
+		#time.sleep(3600)
 	
 if __name__ == "__main__":
     main()
