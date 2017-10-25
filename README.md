@@ -47,7 +47,18 @@ sudo python setup.py install
 
 python nbnspeed.py
 ```
+## Optimised usage
+The speed-test package will try and locate the nearest test server to you which works most of the time, if you hare having trouble with your speed tests and this that they could be better you can brows to https://www.speedtestserver.com/ and find the closest server to you.
 
+Find in nbnspeed.py where it says:
+```
+servers = []
+```
+and change it to the server number what you located on the website like this.
+```
+servers = [2627]
+```
+e.g. 2627 points to Telstra in Perth city, which is the closest server to me.
 
 ## Feedback
 
