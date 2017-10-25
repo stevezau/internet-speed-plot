@@ -54,7 +54,7 @@ Find in nbnspeed.py where it says:
 ```
 servers = []
 ```
-and change it to the server number what you located on the website like this.
+and change it to the server number which you located on the website above.
 ```
 servers = [2627]
 ```
