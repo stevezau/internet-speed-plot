@@ -9,7 +9,7 @@ This was created in python 2.7
 
 ## Prerequisites
 
-You will require the following for this to work
+You will require the following for this to run:
 ```
 sudo apt-get install python-setuptools python-dev build-essential 
 sudo easy_install pip 
@@ -21,7 +21,7 @@ pip install numpy
 ```
 
 ## Running the script
-With these installed you should be able to run
+With these installed you should be able to run:
 ```
 sudo python nbnspeed.py
 
