@@ -1,4 +1,6 @@
 # NBN Speed
+Example of plot https://github.com/brentoncollins/nbnspeed/blob/master/25-10-2017.png
+
 There has been alot of talk around the NBN speeds in Australia lately, so I thought that I would put my two cents
 in for anyone who wants some data to complain with. 
 
