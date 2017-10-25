@@ -39,12 +39,16 @@ You will need to install Python 2.x or 3.x https://www.python.org/downloads/wind
 Ensure when you install python, on the first install page click add to PATH, this will allow you to run python from CMD with no worries.
 
 You will need to install Microsoft Visual C++ in order to install the python packages which ate required, you can find this here
-http://landinghub.visualstudio.com/visual-cpp-build-tools. (takes a while to install)
+http://landinghub.visualstudio.com/visual-cpp-build-tools. (takes a while to install, which is kind of annoying :( sorry)
 
-With these installed you should be able to run within the clone directory:
+Install git from https://git-scm.com/download/win
+
+With these installed you should be able to clone the files to a directory and run the setup.
+
+Open CMD from the start menu then.
 ```
+git clone https://github.com/brentoncollins/nbnspeed
 sudo python setup.py install
-
 python nbnspeed.py
 ```
 ## Optimised usage
