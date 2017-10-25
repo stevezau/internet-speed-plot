@@ -6,9 +6,11 @@ in for anyone who wants some data to complain with.
 
 This python script will grap your IP address and get the JSON data from http://ipinfo.io/ , which includes your ISP data for the plot information, it also uses the speed-test python API to get the up, down and ping results of your internet connection hourly.
 
-Every hour it will use matplotlib to create a plot of your current connection speeds and save them to a image file, every 24 hours it will make a copy of your daily plot and save it in the same directory for you to check or send off to complain.
+Every hour it will use matplotlib to create a plot of your current connection speeds and save them to a image file, every 24 hours from when you run the file it will make a copy of your daily plot and save it in the same directory for you to check or send off to complain.
 
 This was created in python 2.7 but tested with Python 3.6 also and seems to work fine.
+
+Also remember that if you are downloadin/uploading that the plot speeds will be affected as your bandwidth is being used up....
 
 
 ## Prerequisites
