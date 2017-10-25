@@ -53,6 +53,11 @@ git clone https://github.com/brentoncollins/nbnspeed
 pip install --user numpy scipy matplotlib speedtest-cli requests
 python nbnspeed.py
 ```
+
+It will ouput an image file in the same directory, it won't seem like much in the first few hours of running but after a whole day it will have a full 24 hour plot image, the image will then be time stamped and continue to keep updating the plot every hour creating a new image every 24 hours for you to review.
+
+You can view the speed.png file which is the live image file as it continues to plot throughout the day.
+
 ## Optimised usage
 The speed-test package will try and locate the nearest test server to you, which works most of the time. If you hare having trouble with your speeds and think that they could be better you can browse to https://www.speedtestserver.com/ and find the closest server to you.
 
