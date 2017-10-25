@@ -48,7 +48,7 @@ With these installed you should be able to clone the files to a directory and ru
 Open CMD from the start menu then.
 ```
 git clone https://github.com/brentoncollins/nbnspeed
-sudo python setup.py install
+pip install --user numpy scipy matplotlib speedtest-cli urllib2
 python nbnspeed.py
 ```
 ## Optimised usage
