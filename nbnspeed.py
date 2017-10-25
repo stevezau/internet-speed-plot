@@ -127,7 +127,7 @@ def main():
 		plt.savefig('speed.png')	# save the figure to file
 		plt.close()
 		print ("\nPlot Complete...\nDownload: {} Mbps\nUpload: {} Mbps\nPing: {}s\nTime: {}"\
-		.format(download_now,upload_now,ping_now,str(time.strftime("%d-%m-%Y"))))
+		.format(download_now,upload_now,ping_now,str(time.strftime("%I %p"))))
 		print ("Waiting an hour before testing again.\n")
 		time.sleep(3600)
 		
