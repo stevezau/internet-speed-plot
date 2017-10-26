@@ -26,17 +26,17 @@ import shutil
 
 #Get current IP for IPS information
 
-r = requests.get('http://ipinfo.io/json')
-r.raise_for_status()
-data = json.loads(r.content.decode('utf-8'))
-IP=data['ip']
-org=data['org']
-city = data['city']
-country=data['country']
-region=data['region']
+#r = requests.get('http://ipinfo.io/json')
+#r.raise_for_status()
+#data = json.loads(r.content.decode('utf-8'))
+#IP=data['ip']
+#org=data['org']
+#city = data['city']
+#country=data['country']
+#region=data['region']
 
-print('Your IP detail\n ')
-print('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
+#print('Your IP detail\n ')
+#print('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
 
 def main():
 	ping_time=[]
@@ -88,7 +88,7 @@ def main():
 		fig, ax1 = plt.subplots()
 		plt.grid()							
 		ax1.plot(x, downspeed, c='#FF6347', label='Down speed')		
-		ax1.set_xlabel(org + " - " + city + " - " + str(time.strftime("%d-%m-%Y")))
+		ax1.set_xlabel(str(time.strftime("%d-%m-%Y"))) #org + " - " + city + " - " + 
 		ax1.set_ylabel('Down Speed', color='#FF6347')	
 		ax1.tick_params('y', colors='#FF6347')	
 		if abs(max(downspeed)-min(downspeed)) > 20:
