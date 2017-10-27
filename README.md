@@ -34,6 +34,9 @@ pyvirtualdisplay
 selenium
 
 bs4
+
+and geko driver
+https://github.com/mozilla/geckodriver/releases
 ## Install & Run on Linux
 ```
 sudo apt-get install python-setuptools python-dev build-essential 
