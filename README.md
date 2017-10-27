@@ -26,6 +26,14 @@ matplotlib
 numpy
 
 requests
+
+for the webscrape version you will also require
+
+pyvirtualdisplay
+
+selenium
+
+bs4
 ## Install & Run on Linux
 ```
 sudo apt-get install python-setuptools python-dev build-essential 
