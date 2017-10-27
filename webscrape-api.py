@@ -122,7 +122,6 @@ def main():
 			maxping = round(max(ping_time+ping_time_st))
 			minping = round(max(ping_time+ping_time_st))
 			
-			print maxdl,mindl,maxup,minup,maxping,minping
 
 			x = np.arange(1,len(time_now)+1)								
 			fig, ax1 = plt.subplots()
@@ -207,7 +206,7 @@ def main():
 
 		
 		except KeyboardInterrupt:
-			print 'Interrupted by keyboard'
+			print('Interrupted by keyboard')
 			driver.quit()
 			display.stop()
 			print "Stopping driver"
@@ -216,7 +215,7 @@ def main():
 		except:
 			driver.quit()
 			display.stop()
-			print "Unexpected error:", sys.exc_info()[0]
+			print ("Unexpected error:", sys.exc_info()[0])
 			continue
 
 if __name__ == "__main__":
