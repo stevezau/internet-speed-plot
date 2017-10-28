@@ -1,4 +1,4 @@
-# NBN Speed
+# Internet speed test plot - with speedtest-cli and matplotlib
 Example of plot https://github.com/brentoncollins/nbnspeed/blob/master/25-10-2017.png
 
 There has been alot of talk around the NBN speeds in Australia lately, so I thought that I would put my two cents
@@ -43,6 +43,8 @@ pip install speedtest-cli requests matplotlib numpy requests
 git clone https://github.com/brentoncollins/nbnspeed
 
 python setup.py install
+
+python speed.py
 ```
 ## Install & Run on Windows
 You will need to install Python 2.x or 3.x https://www.python.org/downloads/windows/
@@ -62,6 +64,8 @@ Open CMD from the start menu then.
 ```
 git clone https://github.com/brentoncollins/nbnspeed
 python setup.py install
+
+python speed.py
 ```
 
 It will ouput an image file in the same directory, it won't seem like much in the first few hours of running but after a whole day it will have a full 24 hour plot image, the image will then be time stamped and continue to keep updating the plot every hour creating a new image every 24 hours for you to review.
