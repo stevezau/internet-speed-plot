@@ -24,7 +24,6 @@ import matplotlib.ticker as ticker
 import math
 import shutil
 import os
-from splinter import Browser
 
 try:
     # For Python 3.0 and later
