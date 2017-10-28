@@ -2,9 +2,12 @@
 from bs4 import BeautifulSoup
 import unittest
 from selenium import webdriver
-from pyvirtualdisplay import Display
-display = Display(visible=0, size=(800, 600))
-display.start()
+import platform
+system = platform.system().lower()
+if system != "windows":
+	from pyvirtualdisplay import Display
+	display = Display(visible=0, size=(800, 600))
+	display.start()
 import sys
 import traceback
 import speedtest
@@ -20,13 +23,15 @@ from matplotlib import rcParams
 import matplotlib.ticker as ticker
 import math
 import shutil
+import os
+from splinter import Browser
+
 try:
     # For Python 3.0 and later
     from urllib.request import urlopen
 except ImportError:
     # Fall back to Python 2's urllib2
     from urllib2 import urlopen
-
 
 class scrape:
 # Scrape the Ookala web page for results, after running the speed test in selenium.
@@ -36,12 +41,11 @@ class scrape:
 		print("Ookala webscrape....")
 		print("Opening webdriver....")
 		driver.get('http://beta.speedtest.net/')
-		time.sleep(10)
 		driver.find_element_by_xpath(".//*[@id='container']/div[2]/div/div/div/div[3]/div[1]/div[1]/a/span[3]").click()
-		print("Testing Up Speed...\n")
-		time.sleep(30)
 		print("Testing Down Speed...\n")
-		time.sleep(30)
+		time.sleep(25)
+		print("Testing Up Speed...\n")
+		time.sleep(25)
 		self.html_source = driver.page_source
 		self.soup = BeautifulSoup(self.html_source,'html.parser')  		
 		self.results = self.soup.findAll('div',{'class':'result-container-speed'})  
@@ -147,7 +151,8 @@ def main():
 				# Apend the values to the list if web-scrape
 			if len(time_now) >= 25:
 				del downspeed[0],downspeed_st[0],upspeed[0],upspeed_st[0],ping_time[0],ping_time_st[0],time_now[0]
-				# If it has run for a whole 24 hours, remove the first value in all of the lists to keep the x axis at 24
+				# If it has run for a whole 24 hours, remove the first value in all of the lists 
+				# to keep the x axis at 24.
 				# This is becasue we only want a plot image with 24 x-axis points for a whole day.
 			if option == 3:	
 				maxdl = round(max(downspeed+downspeed_st))
@@ -156,7 +161,8 @@ def main():
 				minup = round(min(upspeed+upspeed_st))
 				maxping = round(max(ping_time+ping_time_st))
 				minping = round(max(ping_time+ping_time_st))
-				# If web-scrape & API add both of the lists together, find the maximum number after the lists have been added together
+				# If web-scrape & API add both of the lists together, 
+				# find the maximum number after the lists have been added together
 				# then round to a whole number, this is to ensure the y values of the plot are kept at whole number.
 			if option == 1 or option == 2:
 				maxdl = round(max(downspeed))
@@ -166,10 +172,8 @@ def main():
 				maxping = round(max(ping_time))
 				minping = round(max(ping_time))
 				# Same as above but only using the lists that are used if it a single test.
-				
-				
+					
 			# Start of the plotting.	
-			
 			x = np.arange(1,len(time_now)+1)								
 			# Set the x axis points.
 			fig, ax1 = plt.subplots()
@@ -178,7 +182,8 @@ def main():
 			ax1.plot(x, downspeed, c='#FF6347', label='Down speed API')		
 			# Draw the first plot line for the Down Speed API
 			if option == 3:
-				ax1.set_xlabel("{} - {} - {}\nOokla - MAX\MIN - Down {}\{} - Up {}\{} - Ping {}\{} ms\nAPI MAX\MIN - Down {}\{} - Up {}\{} - Ping {}\{} ms"\
+				ax1.set_xlabel("{} - {} - {}\nOokla - MAX\MIN - Down {}\{} - Up {}\{} - Ping {}\{} ms\nAPI MAX\MIN\
+				- Down {}\{} - Up {}\{} - Ping {}\{} ms"\
 				.format(str(speettest.isp),str(speettest.city),str(time.strftime("%d-%m-%Y")),\
 				max(downspeed_st),min(downspeed_st),max(upspeed_st),min(upspeed_st),max(ping_time_st),min(ping_time_st)\
 				,max(downspeed),min(downspeed),max(upspeed),min(upspeed),max(ping_time),min(ping_time)))
@@ -208,7 +213,7 @@ def main():
 			# Set the x labels rotation and values.
 			
 			
-			ax2 = ax1.twinx()								## ADD another plot and same as above
+			ax2 = ax1.twinx()						## ADD another plot and same as above
 			ax2.plot(x, upspeed, label='Up Speed API')
 			ax2.set_ylabel('Up Speed', color='b')
 			ax2.tick_params('y', colors='b')
@@ -217,7 +222,7 @@ def main():
 			else:
 				ax2.set_yticks(np.arange(minup -10, maxup +13,2))
 
-			ax3 = ax1.twinx()								## ADD another plot and same as above
+			ax3 = ax1.twinx()						## ADD another plot and same as above
 			ax3.plot(x, ping_time, c = '#006400', linestyle=':',label='Ping API')
 			ax3.set_ylabel('Ping', color='#006400')
 			ax3.tick_params('y', colors='#006400')
@@ -236,7 +241,7 @@ def main():
 			if option == 3:
 			
 			# If I am using option 3 for both which will include 6 plots instead of just 3, add the next 3.
-				ax4 = ax1.twinx()								## ADD another plot and same as above
+				ax4 = ax1.twinx()					## ADD another plot and same as above
 				ax4.plot(x, ping_time_st, c = '#000000', linestyle=':',label='Ookla Ping')
 				ax4.set_yticks(np.arange(0, maxping +150,10))
 				
@@ -245,7 +250,7 @@ def main():
 				# Due to not needing duplicate spines for the two duplicate plots, I am refering to the same spines
 				# and turning the last three off, I only need one download, one upload and one ping spine.
 				
-				ax5 = ax1.twinx()								## ADD another plot and same as above
+				ax5 = ax1.twinx()					## ADD another plot and same as above
 				ax5.plot(x, upspeed_st, c = '#000080',label='Ookla Up Speed')
 				if abs(max(upspeed)-min(upspeed)) > 20:
 					ax5.set_yticks(np.arange(minup -10, maxup +13,4))
@@ -255,7 +260,7 @@ def main():
 				ax5.tick_params(right="off")	
 				# As above
 				
-				ax6 = ax1.twinx()								## ADD another plot and same as above
+				ax6 = ax1.twinx()					## ADD another plot and same as above
 				ax6.plot(x, downspeed_st, c='#4B0082',label='Ookla Down Speed')
 				if abs(max(downspeed)-min(downspeed)) > 20:
 					ax6.set_yticks(np.arange(mindl -20, maxdl +3,4))
@@ -298,4 +303,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
