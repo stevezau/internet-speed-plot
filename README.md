@@ -27,8 +27,6 @@ numpy
 
 requests
 
-for the webscrape version you will also require
-
 pyvirtualdisplay
 
 selenium
@@ -44,7 +42,7 @@ sudo easy_install pip
 pip install speedtest-cli requests matplotlib numpy requests
 git clone https://github.com/brentoncollins/nbnspeed
 
-python nbnspeed.py
+python setup.py install
 ```
 ## Install & Run on Windows
 You will need to install Python 2.x or 3.x https://www.python.org/downloads/windows/
@@ -56,13 +54,14 @@ http://landinghub.visualstudio.com/visual-cpp-build-tools. (takes a while to ins
 
 Install git from https://git-scm.com/download/win
 
+Install firefox and download the gekodriver and put it in the same directory. https://github.com/mozilla/geckodriver/releases
+
 With these installed you should be able to clone the files to a directory and run the setup.
 
 Open CMD from the start menu then.
 ```
 git clone https://github.com/brentoncollins/nbnspeed
-pip install --user numpy scipy matplotlib speedtest-cli requests
-python nbnspeed.py
+python setup.py install
 ```
 
 It will ouput an image file in the same directory, it won't seem like much in the first few hours of running but after a whole day it will have a full 24 hour plot image, the image will then be time stamped and continue to keep updating the plot every hour creating a new image every 24 hours for you to review.
