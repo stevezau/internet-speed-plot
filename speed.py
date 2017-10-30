@@ -31,11 +31,11 @@ try:
 except ImportError:
     # Fall back to Python 2's urllib2
     from urllib2 import urlopen
-
+global driver
+driver = webdriver.Firefox()
 class scrape:
 # Scrape the Ookala web page for results, after running the speed test in selenium.
-	global driver
-	driver = webdriver.Firefox()
+
 	def __init__(self):
 		print("Ookala webscrape....")
 		print("Opening webdriver....")
